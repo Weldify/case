@@ -1,0 +1,16 @@
+{
+    "name": "Containers",
+    "tree": {
+      "$className": "DataModel",
+
+      "ReplicatedStorage": {
+        "Packages": {
+            "$className": "Folder",
+            
+            "containers": {
+                "$path": "lib"
+            }
+        }
+      }
+    }
+  }

@@ -88,4 +88,5 @@ local function List<T>(initial: {T}): List<T>
 	return self
 end
 
+export type Type<T> = List<T>
 return List
