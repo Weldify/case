@@ -4,6 +4,10 @@ export type List<T> = Types.List<T>
 type Predicate<T> = (T) -> boolean
 type Compare<T> = (T, T) -> boolean
 
+local function create<T>(): List<T>
+	return {}
+end
+
 local function fromValues<T>(...: T): List<T>
 	return {...}
 end
@@ -12,8 +16,8 @@ local function fromArray<T>(array: {T}): List<T>
 	return array
 end
 
-local function clone<T>(self: List<T>): List<T>
-	return table.clone(self)
+local function clone<T>(from: List<T>): List<T>
+	return table.clone(from)
 end
 
 local function unpack<T>(self: List<T>): ...T
@@ -56,7 +60,8 @@ local function sort<T>(self: List<T>, compare: Compare<T>?)
 end
 
 local function where<T>(self: List<T>, predicate: Predicate<T>): List<T>
-	local result = {}
+	local result: List<T> = {}
+	
 	for _, v in ipairs(self) do
 		if predicate(v) then
 			table.insert(result, v)
@@ -81,6 +86,7 @@ local function clear<T>(self: List<T>)
 end
 
 local List = {
+	create = create;
 	fromValues = fromValues;
 	fromArray = fromArray;
 	clone = clone;
