@@ -12,10 +12,6 @@ local function fromValues<T>(...: T): List<T>
 	return {...}
 end
 
-local function fromArray<T>(array: {T}): List<T>
-	return array
-end
-
 local function clone<T>(from: List<T>): List<T>
 	return table.clone(from)
 end
@@ -33,10 +29,7 @@ local function insert<T>(self: List<T>, index: T, value: T)
 end
 
 local function pop<T>(self: List<T>): T
-	local value = self[#self]
-	table.remove(self, #self)
-
-	return value
+	return table.remove(self, #self)
 end
 
 local function remove<T>(self: List<T>, index: number)
@@ -88,7 +81,6 @@ end
 local List = {
 	create = create;
 	fromValues = fromValues;
-	fromArray = fromArray;
 	clone = clone;
 
 	unpack = unpack;
