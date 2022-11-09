@@ -1,5 +1,5 @@
 [package]
-name = "weldify/ktnr"
+name = "weldify/case"
 description = "Higher level containers for convenience and simplicity"
 version = "0.0.1"
 registry = "https://github.com/UpliftGames/wally-index"

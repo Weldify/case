@@ -1,8 +1,8 @@
 # STILL IN DEVELOPMENT
 ### The library is currently in heavy development. This means that it's barely usable and probably contains bugs and edge cases. Use at your own discretion or wait until the first release!
 
-# ktnr
-`ktnr` is a collection of types and utility functions for containers such as `List`, `Map` and `Set`.
+# case
+`case` is a collection of types and utility functions for containers such as `List`, `Map` and `Set`.
 ## Why?
 I got tired of writing convenience functions in each and every one of my projects. It just got repetitive.
 I also find luau's raw container types ugly and unintuitive at times, especially dictionary types. `{[K]: V}` just looks alien to me, and especially to my (already cramped) fingers.

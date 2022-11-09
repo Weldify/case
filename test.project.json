@@ -1,11 +1,11 @@
 {
-  "name": "ktnr-test",
+  "name": "case-test",
   "tree": {
     "$className": "DataModel",
     "ReplicatedStorage": {
       "Packages": {
         "$className": "Folder",
-        "ktnr": {
+        "case": {
           "$path": "lib"
         }
       }
