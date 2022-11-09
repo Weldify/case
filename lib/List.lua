@@ -110,6 +110,18 @@ local function with<T>(self: List<T>, other: List<T>): List<T>
 	return table.move(other, 1, #other, #base + 1, base)
 end
 
+local function without<T>(self: List<T>, other: List<T>): List<T>
+	-- I'd like to use Set for this, but making the containers dependant on eachother isn't a good idea
+	local otherValues: {[T]: true} = {}
+	for _, v in ipairs(other) do
+		otherValues[v] = true
+	end
+
+	return where(self, function(x)
+		return otherValues[x] == nil
+	end)
+end
+
 local function clear<T>(self: List<T>)
 	table.clear(self)
 end
@@ -139,6 +151,7 @@ local List = {
 	where = where;
 	every = every;
 	with = with;
+	without = without;
 
 	clear = clear;
 }
