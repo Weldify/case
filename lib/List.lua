@@ -106,8 +106,8 @@ end
 local function with<T>(self: List<T>, other: List<T>): List<T>
 	local base = clone(self)
 
-	table.move(other, 1, #other, #base + 1, base)
-	return base
+	-- table.move returns dst
+	return table.move(other, 1, #other, #base + 1, base)
 end
 
 local function clear<T>(self: List<T>)
