@@ -2,7 +2,7 @@
 `ktnr` is a collection of high level container implementations such as `List`, `Map` and `Set`.
 ## Why?
 I got tired of writing convenience functions in each and every one of my projects. It just got repetitive.
-I also find luau's raw container types ugly and unintuitive at times, especially dictionary types: `{[K]: }`
+I also find luau's raw container types ugly and unintuitive at times, especially dictionary types. `{[K]: V}` just looks alien to me, and especially to my (already cramped) fingers.
 ## Goals
 + Ease of use: All you should ever need is a cheat sheet
 + Simple implementation: The implementation must be simple and well-documented
