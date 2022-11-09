@@ -1,16 +1,14 @@
 {
-    "name": "ktnr-test",
-    "tree": {
-      "$className": "DataModel",
-
-      "ReplicatedStorage": {
-        "Packages": {
-            "$className": "Folder",
-
-            "containers": {
-                "$path": "lib"
-            }
+  "name": "ktnr-test",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "Packages": {
+        "$className": "Folder",
+        "ktnr": {
+          "$path": "lib"
         }
       }
     }
   }
+}
