@@ -121,14 +121,10 @@ local function with<T>(self: List<T>, other: List<T>): List<T>
 end
 
 local function without<T>(self: List<T>, other: List<T>): List<T>
-	-- I'd like to use Set for this, but making the containers dependant on eachother isn't a good idea
-	local otherValues: Set<T> = {}
-	for _, v in ipairs(other) do
-		otherValues[v] = true
-	end
+	local otherEntries = entries(other)
 
 	return where(self, function(x)
-		return otherValues[x] == nil
+		return otherEntries[x] == nil
 	end)
 end
 
