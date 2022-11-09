@@ -1,6 +1,6 @@
 [package]
-name = "weldify/containers"
-description = "A collection of useful container implementations"
+name = "weldify/ktnr"
+description = "Higher level containers for convenience and simplicity"
 version = "0.0.1"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
