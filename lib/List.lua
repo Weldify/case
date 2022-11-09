@@ -32,8 +32,8 @@ local function pop<T>(self: List<T>): T
 	return table.remove(self, #self)
 end
 
-local function remove<T>(self: List<T>, index: number)
-	table.remove(self, index)
+local function remove<T>(self: List<T>, index: number): T
+	return table.remove(self, index)
 end
 
 local function freeze<T>(self: List<T>)
