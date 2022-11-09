@@ -32,6 +32,13 @@ local function insert<T>(self: List<T>, index: T, value: T)
 	table.insert(self, index, value)
 end
 
+local function pop<T>(self: List<T>): T
+	local value = self[#self]
+	table.remove(self, #self)
+
+	return value
+end
+
 local function remove<T>(self: List<T>, index: number)
 	table.remove(self, index)
 end
@@ -42,13 +49,6 @@ end
 
 local function isFrozen<T>(self: List<T>): boolean
 	return table.isfrozen(self)
-end
-
-local function pop<T>(self: List<T>): T
-	local value = self[#self]
-	table.remove(self, #self)
-
-	return value
 end
 
 local function isEmpty<T>(self: List<T>): boolean
