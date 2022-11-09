@@ -57,7 +57,7 @@ local function remove<T>(self: List<T>, index: number): T
 	return table.remove(self, index)
 end
 
--- Remove but with O(1) if element positions don't matter
+-- O(1) remove() for those who don't mind their array being shuffled around a bit
 local function swoop<T>(self: List<T>, index: number): T
 	assert(withinBounds(self, index), "Out of bounds")
 
