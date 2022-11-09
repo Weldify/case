@@ -103,6 +103,13 @@ local function every<T>(self: List<T>, predicate: Predicate<T>): boolean
 	return true
 end
 
+local function with<T>(self: List<T>, other: List<T>): List<T>
+	local base = clone(self)
+
+	table.move(other, 1, #other, #base + 1, base)
+	return base
+end
+
 local function clear<T>(self: List<T>)
 	table.clear(self)
 end
@@ -131,6 +138,7 @@ local List = {
 
 	where = where;
 	every = every;
+	with = with;
 
 	clear = clear;
 }
