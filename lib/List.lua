@@ -1,6 +1,7 @@
 local Types = require(script.Parent.Types)
 
 export type List<T> = Types.List<T>
+type Set<T> = Types.Set<T>
 type Predicate<T> = (T) -> boolean
 type Compare<T> = (T, T) -> boolean
 
@@ -18,6 +19,15 @@ end
 
 local function clone<T>(from: List<T>): List<T>
 	return table.clone(from)
+end
+
+local function entries<T>(self: List<T>): Set<T>
+	local set: Set<T> = {}
+	for _, v in ipairs(self) do
+		set[v] = true
+	end
+
+	return set
 end
 
 local function unpack<T>(self: List<T>): ...T
@@ -112,7 +122,7 @@ end
 
 local function without<T>(self: List<T>, other: List<T>): List<T>
 	-- I'd like to use Set for this, but making the containers dependant on eachother isn't a good idea
-	local otherValues: {[T]: true} = {}
+	local otherValues: Set<T> = {}
 	for _, v in ipairs(other) do
 		otherValues[v] = true
 	end
@@ -130,6 +140,8 @@ local List = {
 	create = create;
 	from = from;
 	clone = clone;
+
+	entries = entries;
 
 	unpack = unpack;
 
