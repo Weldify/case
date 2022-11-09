@@ -39,6 +39,7 @@ local function swapUnsafe<T>(self: List<T>, i1: number, i2: number)
 end
 
 local function swap<T>(self: List<T>, i1: number, i2: number)
+	-- Swap will mess the list up if the indexes are incorrect
 	assert(
 		withinBounds(self, i1)
 		and withinBounds(self, i2),
@@ -54,6 +55,14 @@ end
 
 local function remove<T>(self: List<T>, index: number): T
 	return table.remove(self, index)
+end
+
+-- Remove but with O(1) if element positions don't matter
+local function swoop<T>(self: List<T>, index: number): T
+	assert(withinBounds(self, index), "Out of bounds")
+
+	swapUnsafe(self, index, #self)
+	return pop(self)
 end
 
 local function freeze<T>(self: List<T>)
@@ -111,6 +120,7 @@ local List = {
 
 	pop = pop;
 	remove = remove;
+	swoop = swoop;
 
 	freeze = freeze;
 	isFrozen = isFrozen;
