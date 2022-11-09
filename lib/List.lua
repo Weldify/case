@@ -4,6 +4,10 @@ export type List<T> = Types.List<T>
 type Predicate<T> = (T) -> boolean
 type Compare<T> = (T, T) -> boolean
 
+local function withinBounds<T>(list: List<T>, index: number): boolean
+	return index >= 1 and index <= #list
+end
+
 local function create<T>(): List<T>
 	return {}
 end
@@ -26,6 +30,22 @@ end
 
 local function insert<T>(self: List<T>, index: T, value: T)
 	table.insert(self, index, value)
+end
+
+local function swapUnsafe<T>(self: List<T>, i1: number, i2: number)
+	local value = self[i1]
+	self[i1] = self[i2]
+	self[i2] = value
+end
+
+local function swap<T>(self: List<T>, i1: number, i2: number)
+	assert(
+		withinBounds(self, i1)
+		and withinBounds(self, i2),
+		"Out of bounds"
+	)
+
+	swapUnsafe(self, i1, i2)
 end
 
 local function pop<T>(self: List<T>): T
@@ -87,6 +107,7 @@ local List = {
 
 	push = push;
 	insert = insert;
+	swap = swap;
 
 	pop = pop;
 	remove = remove;
