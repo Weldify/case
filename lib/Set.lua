@@ -8,15 +8,15 @@ local function create<T>(): Set<T>
 end
 
 local function from<T>(...: T): Set<T>
-    local first, second = ...
+    local args: List<T> = {...}
     local set: Set<T>
 
-    -- Knowing there's only one item lets us skip iterating over the vararg
-    if second == nil then
-        set = {first = true}
+    -- Knowing there's only one item lets us skip iterating over the args
+    if #args == 1 then
+        set = {[args[1]] = true}
     else
         set = {}
-        for _, v in ipairs({...}) do
+        for _, v in ipairs(args) do
             set[v] = true
         end
     end
