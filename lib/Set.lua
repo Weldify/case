@@ -7,7 +7,7 @@ local function create<T>(): Set<T>
     return {}
 end
 
-local function fromItems<T>(...: T): Set<T>
+local function from<T>(...: T): Set<T>
     local first, second = ...
     local set: Set<T>
 
@@ -67,7 +67,7 @@ end
 
 local Set = {
     create = create;
-    fromItems = fromItems;
+    from = from;
     clone = clone;
 
     items = items;

@@ -12,7 +12,7 @@ local function create<T>(): List<T>
 	return {}
 end
 
-local function fromValues<T>(...: T): List<T>
+local function from<T>(...: T): List<T>
 	return {...}
 end
 
@@ -128,7 +128,7 @@ end
 
 local List = {
 	create = create;
-	fromValues = fromValues;
+	from = from;
 	clone = clone;
 
 	unpack = unpack;
